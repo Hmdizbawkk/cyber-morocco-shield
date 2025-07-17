@@ -34,10 +34,10 @@ const HowItWorksSection = () => {
     <section id="how" className="relative z-10 px-6 py-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
             How <span className="text-red-500">It Works</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Our streamlined process ensures efficient vulnerability disclosure and resolution, 
             creating a win-win scenario for both hackers and organizations.
           </p>
@@ -47,10 +47,10 @@ const HowItWorksSection = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {steps.map((step, index) => (
             <div key={index} className="relative">
-              <Card className="bg-black/60 border-gray-700/50 hover:border-red-500/50 transition-all duration-300 group hover:scale-105">
+              <Card className="bg-white border-gray-200 hover:border-red-300 transition-all duration-300 group hover:scale-105 shadow-lg">
                 <CardContent className="p-8 text-center">
                   {/* Step Number */}
-                  <div className="text-6xl font-bold text-gray-800 absolute top-4 right-4 opacity-50">
+                  <div className="text-6xl font-bold text-gray-200 absolute top-4 right-4 opacity-50">
                     {step.step}
                   </div>
                   
@@ -63,7 +63,7 @@ const HowItWorksSection = () => {
                   <h3 className={`text-2xl font-bold mb-4 ${step.color}`}>
                     {step.title}
                   </h3>
-                  <p className="text-gray-400">
+                  <p className="text-gray-600">
                     {step.description}
                   </p>
                 </CardContent>
@@ -80,30 +80,30 @@ const HowItWorksSection = () => {
         </div>
 
         {/* Process Flow Visualization */}
-        <div className="bg-gradient-to-r from-red-900/10 via-blue-900/10 to-green-900/10 rounded-lg p-8 border border-gray-700/30">
-          <h3 className="text-2xl font-bold text-center mb-8">
+        <div className="bg-gradient-to-r from-red-50 via-blue-50 to-green-50 rounded-lg p-8 border border-gray-200">
+          <h3 className="text-2xl font-bold text-center mb-8 text-gray-900">
             Complete <span className="text-red-500">Security Lifecycle</span>
           </h3>
           <div className="grid md:grid-cols-5 gap-4 items-center">
             <div className="text-center">
               <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span className="text-red-400 font-bold">🔍</span>
+                <span className="text-red-600 font-bold">🔍</span>
               </div>
-              <span className="text-sm text-gray-400">Discovery</span>
+              <span className="text-sm text-gray-600">Discovery</span>
             </div>
             <ArrowRight className="h-6 w-6 text-gray-500 mx-auto hidden md:block" />
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span className="text-blue-400 font-bold">📋</span>
+                <span className="text-blue-600 font-bold">📋</span>
               </div>
-              <span className="text-sm text-gray-400">Reporting</span>
+              <span className="text-sm text-gray-600">Reporting</span>
             </div>
             <ArrowRight className="h-6 w-6 text-gray-500 mx-auto hidden md:block" />
             <div className="text-center">
               <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                <span className="text-green-400 font-bold">🛠️</span>
+                <span className="text-green-600 font-bold">🛠️</span>
               </div>
-              <span className="text-sm text-gray-400">Resolution</span>
+              <span className="text-sm text-gray-600">Resolution</span>
             </div>
           </div>
         </div>

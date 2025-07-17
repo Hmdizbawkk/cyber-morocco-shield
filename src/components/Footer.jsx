@@ -3,7 +3,7 @@ import { Shield, Mail, Phone, MapPin, Github, Twitter, Linkedin } from "lucide-r
 
 const Footer = () => {
   return (
-    <footer className="relative z-10 bg-black border-t border-gray-800">
+    <footer className="relative z-10 bg-gray-900 border-t border-gray-700">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand Section */}

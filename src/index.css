@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -59,7 +60,7 @@ All colors MUST be HSL.
   }
 }
 
-/* Cyberpunk Grid Pattern - Updated for white background */
+/* Cyberpunk Grid Pattern */
 .bg-grid-pattern {
   background-image: 
     linear-gradient(rgba(239, 68, 68, 0.1) 1px, transparent 1px),

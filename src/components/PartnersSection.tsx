@@ -36,14 +36,14 @@ const PartnersSection = () => {
   ];
 
   return (
-    <section id="partners" className="relative z-10 px-6 py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="partners" className="relative z-10 px-6 py-20 bg-gradient-to-b from-gray-900/50 to-black">
       <div className="max-w-7xl mx-auto">
         {/* Partners Section */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Trusted <span className="text-red-500">Partners</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Leading Moroccan organizations and government institutions trust BugHunters.ma 
             to enhance their cybersecurity through collaborative bug bounty programs.
           </p>
@@ -51,11 +51,11 @@ const PartnersSection = () => {
 
         <div className="grid md:grid-cols-4 gap-6 mb-20">
           {partners.map((partner, index) => (
-            <Card key={index} className="bg-white border-gray-200 hover:border-red-300 transition-all duration-300 group hover:scale-105 shadow-lg">
+            <Card key={index} className="bg-black/40 border-gray-700/30 hover:border-red-500/50 transition-all duration-300 group hover:scale-105">
               <CardContent className="p-6 text-center">
                 <div className="text-4xl mb-4">{partner.icon}</div>
-                <h3 className="font-bold text-gray-900 mb-2">{partner.name}</h3>
-                <p className="text-sm text-gray-600">{partner.type}</p>
+                <h3 className="font-bold text-white mb-2">{partner.name}</h3>
+                <p className="text-sm text-gray-400">{partner.type}</p>
               </CardContent>
             </Card>
           ))}
@@ -63,24 +63,24 @@ const PartnersSection = () => {
 
         {/* Testimonials Section */}
         <div className="text-center mb-16">
-          <h3 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+          <h3 className="text-3xl md:text-4xl font-bold mb-4">
             What Our <span className="text-blue-500">Partners Say</span>
           </h3>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-gradient-to-br from-gray-50 to-white border-gray-200 hover:border-blue-300 transition-all duration-300 shadow-lg">
+            <Card key={index} className="bg-gradient-to-br from-gray-900/60 to-black/60 border-gray-700/30 hover:border-blue-500/50 transition-all duration-300">
               <CardContent className="p-8">
-                <div className="text-4xl mb-4 text-blue-500">"</div>
-                <p className="text-gray-700 mb-6 italic">
+                <div className="text-4xl mb-4">"</div>
+                <p className="text-gray-300 mb-6 italic">
                   {testimonial.quote}
                 </p>
                 <div className="flex items-center">
                   <div className="text-3xl mr-4">{testimonial.avatar}</div>
                   <div>
-                    <div className="font-bold text-gray-900">{testimonial.author}</div>
-                    <div className="text-sm text-gray-600">{testimonial.role}</div>
+                    <div className="font-bold text-white">{testimonial.author}</div>
+                    <div className="text-sm text-gray-400">{testimonial.role}</div>
                   </div>
                 </div>
               </CardContent>
@@ -90,12 +90,12 @@ const PartnersSection = () => {
 
         {/* Call to Action for Organizations */}
         <div className="mt-20 text-center">
-          <Card className="bg-gradient-to-r from-red-50 to-blue-50 border-red-200 shadow-lg">
+          <Card className="bg-gradient-to-r from-red-900/20 to-blue-900/20 border-red-500/30">
             <CardContent className="p-12">
-              <h3 className="text-3xl font-bold mb-4 text-gray-900">
+              <h3 className="text-3xl font-bold mb-4">
                 Join Morocco's Cybersecurity <span className="text-red-500">Alliance</span>
               </h3>
-              <p className="text-gray-700 mb-8 max-w-2xl mx-auto">
+              <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
                 Become part of Morocco's national cybersecurity initiative. Partner with us to 
                 strengthen your organization's security and contribute to the nation's digital resilience.
               </p>
@@ -103,7 +103,7 @@ const PartnersSection = () => {
                 <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
                   Become a Partner
                 </button>
-                <button className="border border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                <button className="border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white px-8 py-3 rounded-lg font-semibold transition-colors">
                   Learn More
                 </button>
               </div>

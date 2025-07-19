@@ -39,6 +39,14 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
+    /* BugHunters.ma Role-based Colors */
+    --bughunter: 0 84% 60%;
+    --bughunter-foreground: 0 0% 100%;
+    --enterprise: 221 83% 53%;
+    --enterprise-foreground: 0 0% 100%;
+    --admin: 142 76% 36%;
+    --admin-foreground: 0 0% 100%;
+
     --sidebar-background: 0 0% 5%;
     --sidebar-foreground: 0 0% 90%;
     --sidebar-primary: 0 84% 60%;

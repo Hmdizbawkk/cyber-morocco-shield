@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { DashboardOverview } from "./dashboard/DashboardOverview";
+import { BugReports } from "./dashboard/BugReports";
 
 export function DashboardContent() {
   return (
@@ -7,7 +8,7 @@ export function DashboardContent() {
       <div className="container mx-auto p-6">
         <Routes>
           <Route path="/dashboard" element={<DashboardOverview />} />
-          <Route path="/dashboard/bugs" element={<div>Bug Reports Page</div>} />
+          <Route path="/dashboard/bugs" element={<BugReports />} />
           <Route path="/dashboard/submit" element={<div>Submit Bug Page</div>} />
           <Route path="/dashboard/notifications" element={<div>Notifications Page</div>} />
           <Route path="/dashboard/leaderboard" element={<div>Leaderboard Page</div>} />

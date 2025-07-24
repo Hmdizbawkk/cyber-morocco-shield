@@ -54,44 +54,42 @@ export function AppSidebar() {
   const isActive = (path: string) => currentPath === path;
   const getNavCls = ({ isActive }: { isActive: boolean }) =>
     isActive 
-      ? "bg-gradient-to-r from-primary/20 to-transparent text-primary font-medium border-l-2 border-primary shadow-lg hover-glow" 
-      : "hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground transition-all duration-300 hover:translate-x-1";
+      ? "bg-sidebar-accent text-bughunter font-medium border-l-2 border-bughunter" 
+      : "hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground";
 
   return (
-    <Sidebar className={`${collapsed ? "w-16" : "w-64"} cyber-card border-r-2 border-border/50`} collapsible="icon">
-      <SidebarHeader className="border-b border-sidebar-border p-4 bg-gradient-to-r from-card to-muted/20">
-        <div className="flex items-center gap-3 animate-fade-in-up">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-glow animate-pulse-glow">
-            <Shield className="h-6 w-6 text-primary-foreground animate-float" />
+    <Sidebar className={collapsed ? "w-16" : "w-64"} collapsible="icon">
+      <SidebarHeader className="border-b border-sidebar-border p-4">
+        <div className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-bughunter">
+            <Shield className="h-6 w-6 text-bughunter-foreground" />
           </div>
           {!collapsed && (
-            <div className="animate-slide-in">
-              <h2 className="text-lg font-bold text-cyber bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                BugHunters.ma
-              </h2>
+            <div>
+              <h2 className="text-lg font-bold text-bughunter">BugHunters.ma</h2>
               <p className="text-xs text-muted-foreground">Ethical Hacking Platform</p>
             </div>
           )}
         </div>
       </SidebarHeader>
 
-      <SidebarContent className="px-2 py-4 bg-cyber-grid">
+      <SidebarContent className="px-2 py-4">
         <SidebarGroup>
-          <SidebarGroupLabel className="text-muted-foreground px-3 mb-3 text-xs font-semibold tracking-wider uppercase">
+          <SidebarGroupLabel className="text-muted-foreground px-3 mb-2">
             {!collapsed && "Main"}
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu className="space-y-1">
-              {mainNavItems.map((item, index) => (
-                <SidebarMenuItem key={item.title} className="animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+            <SidebarMenu>
+              {mainNavItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <NavLink 
                       to={item.url} 
                       end 
                       className={getNavCls}
                     >
-                      <item.icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
-                      {!collapsed && <span className="transition-colors duration-300">{item.title}</span>}
+                      <item.icon className="h-5 w-5" />
+                      {!collapsed && <span>{item.title}</span>}
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -101,21 +99,21 @@ export function AppSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel className="text-muted-foreground px-3 mb-3 text-xs font-semibold tracking-wider uppercase">
+          <SidebarGroupLabel className="text-muted-foreground px-3 mb-2">
             {!collapsed && "Community"}
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu className="space-y-1">
-              {communityItems.map((item, index) => (
-                <SidebarMenuItem key={item.title} className="animate-fade-in-up" style={{ animationDelay: `${(index + 4) * 0.1}s` }}>
+            <SidebarMenu>
+              {communityItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <NavLink 
                       to={item.url} 
                       end 
                       className={getNavCls}
                     >
-                      <item.icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
-                      {!collapsed && <span className="transition-colors duration-300">{item.title}</span>}
+                      <item.icon className="h-5 w-5" />
+                      {!collapsed && <span>{item.title}</span>}
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -125,21 +123,21 @@ export function AppSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel className="text-muted-foreground px-3 mb-3 text-xs font-semibold tracking-wider uppercase">
+          <SidebarGroupLabel className="text-muted-foreground px-3 mb-2">
             {!collapsed && "Account"}
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu className="space-y-1">
-              {accountItems.map((item, index) => (
-                <SidebarMenuItem key={item.title} className="animate-fade-in-up" style={{ animationDelay: `${(index + 6) * 0.1}s` }}>
+            <SidebarMenu>
+              {accountItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <NavLink 
                       to={item.url} 
                       end 
                       className={getNavCls}
                     >
-                      <item.icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
-                      {!collapsed && <span className="transition-colors duration-300">{item.title}</span>}
+                      <item.icon className="h-5 w-5" />
+                      {!collapsed && <span>{item.title}</span>}
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -149,20 +147,20 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="border-t border-sidebar-border p-4 bg-gradient-to-t from-muted/20 to-transparent">
-        <div className="flex items-center gap-3 mb-3 animate-fade-in-up">
-          <Avatar className="h-10 w-10 ring-2 ring-primary/20 hover:ring-primary/50 transition-all duration-300">
+      <SidebarFooter className="border-t border-sidebar-border p-4">
+        <div className="flex items-center gap-3 mb-3">
+          <Avatar className="h-8 w-8">
             <AvatarImage src="" alt="User Avatar" />
-            <AvatarFallback className="bg-gradient-to-br from-primary to-primary-glow text-primary-foreground text-sm font-semibold">
+            <AvatarFallback className="bg-bughunter text-bughunter-foreground text-sm">
               JD
             </AvatarFallback>
           </Avatar>
           {!collapsed && (
-            <div className="flex-1 min-w-0 animate-slide-in">
-              <p className="text-sm font-semibold text-sidebar-foreground truncate">
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-medium text-sidebar-foreground truncate">
                 john_hunter
               </p>
-              <p className="text-xs text-accent truncate font-medium">
+              <p className="text-xs text-muted-foreground truncate">
                 Elite BugHunter
               </p>
             </div>
@@ -173,9 +171,9 @@ export function AppSidebar() {
           <Button 
             variant="ghost" 
             size="sm" 
-            className="w-full justify-start text-muted-foreground hover:text-primary hover:bg-primary/10 hover-glow transition-all duration-300 group"
+            className="w-full justify-start text-muted-foreground hover:text-bughunter hover:bg-sidebar-accent/50"
           >
-            <LogOut className="h-4 w-4 mr-2 transition-transform duration-300 group-hover:scale-110" />
+            <LogOut className="h-4 w-4 mr-2" />
             Logout
           </Button>
         )}

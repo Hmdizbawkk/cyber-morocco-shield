@@ -99,13 +99,13 @@ export function BugReports() {
   const [severityFilter, setSeverityFilter] = useState("all");
   const [sortBy, setSortBy] = useState("newest");
 
-  const getSeverityBadge = (severity: string) => {
+  const getSeverityColor = (severity: string) => {
     switch(severity) {
-      case 'Critical': return 'critical';
-      case 'High': return 'high';
-      case 'Medium': return 'medium';
-      case 'Low': return 'low';
-      default: return 'medium';
+      case 'Critical': return 'bg-red-500 hover:bg-red-600';
+      case 'High': return 'bg-orange-500 hover:bg-orange-600';
+      case 'Medium': return 'bg-yellow-500 hover:bg-yellow-600';
+      case 'Low': return 'bg-blue-500 hover:bg-blue-600';
+      default: return 'bg-gray-500 hover:bg-gray-600';
     }
   };
 
@@ -120,14 +120,14 @@ export function BugReports() {
     }
   };
 
-  const getStatusBadge = (status: string) => {
+  const getStatusColor = (status: string) => {
     switch(status) {
-      case 'Resolved': return 'low';
-      case 'In Progress': return 'medium';
-      case 'Under Review': return 'medium';
-      case 'Rejected': return 'critical';
-      case 'Open': return 'low';
-      default: return 'medium';
+      case 'Resolved': return 'text-green-500 bg-green-500/10 border-green-500/20';
+      case 'In Progress': return 'text-yellow-500 bg-yellow-500/10 border-yellow-500/20';
+      case 'Under Review': return 'text-blue-500 bg-blue-500/10 border-blue-500/20';
+      case 'Rejected': return 'text-red-500 bg-red-500/10 border-red-500/20';
+      case 'Open': return 'text-gray-500 bg-gray-500/10 border-gray-500/20';
+      default: return 'text-gray-500 bg-gray-500/10 border-gray-500/20';
     }
   };
 
@@ -162,12 +162,12 @@ export function BugReports() {
   };
 
   return (
-    <div className="space-y-6 dashboard-fade-in">
+    <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col gap-4 dashboard-slide-up">
+      <div className="flex flex-col gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-white">Bug Reports</h1>
-          <p className="text-gray-400">
+          <h1 className="text-3xl font-bold text-foreground">Bug Reports</h1>
+          <p className="text-muted-foreground">
             Manage and track your submitted vulnerability reports
           </p>
         </div>
@@ -175,53 +175,53 @@ export function BugReports() {
         {/* Search and Filters */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex-1">
-            <div className="dashboard-search relative">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 placeholder="Search bugs by title, description, or ID..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
+                className="pl-10 bg-muted/50 border-0 focus-visible:ring-1 focus-visible:ring-bughunter"
               />
             </div>
           </div>
           
           <div className="flex gap-2">
             <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="w-40 dashboard-card border-gray-700 text-white">
+              <SelectTrigger className="w-40">
                 <SelectValue placeholder="Status" />
               </SelectTrigger>
-              <SelectContent className="bg-gray-800 border-gray-700">
-                <SelectItem value="all" className="text-white focus:bg-gray-700">All Status</SelectItem>
-                <SelectItem value="Open" className="text-white focus:bg-gray-700">Open</SelectItem>
-                <SelectItem value="In Progress" className="text-white focus:bg-gray-700">In Progress</SelectItem>
-                <SelectItem value="Under Review" className="text-white focus:bg-gray-700">Under Review</SelectItem>
-                <SelectItem value="Resolved" className="text-white focus:bg-gray-700">Resolved</SelectItem>
-                <SelectItem value="Rejected" className="text-white focus:bg-gray-700">Rejected</SelectItem>
+              <SelectContent>
+                <SelectItem value="all">All Status</SelectItem>
+                <SelectItem value="Open">Open</SelectItem>
+                <SelectItem value="In Progress">In Progress</SelectItem>
+                <SelectItem value="Under Review">Under Review</SelectItem>
+                <SelectItem value="Resolved">Resolved</SelectItem>
+                <SelectItem value="Rejected">Rejected</SelectItem>
               </SelectContent>
             </Select>
 
             <Select value={severityFilter} onValueChange={setSeverityFilter}>
-              <SelectTrigger className="w-40 dashboard-card border-gray-700 text-white">
+              <SelectTrigger className="w-40">
                 <SelectValue placeholder="Severity" />
               </SelectTrigger>
-              <SelectContent className="bg-gray-800 border-gray-700">
-                <SelectItem value="all" className="text-white focus:bg-gray-700">All Severity</SelectItem>
-                <SelectItem value="Critical" className="text-white focus:bg-gray-700">Critical</SelectItem>
-                <SelectItem value="High" className="text-white focus:bg-gray-700">High</SelectItem>
-                <SelectItem value="Medium" className="text-white focus:bg-gray-700">Medium</SelectItem>
-                <SelectItem value="Low" className="text-white focus:bg-gray-700">Low</SelectItem>
+              <SelectContent>
+                <SelectItem value="all">All Severity</SelectItem>
+                <SelectItem value="Critical">Critical</SelectItem>
+                <SelectItem value="High">High</SelectItem>
+                <SelectItem value="Medium">Medium</SelectItem>
+                <SelectItem value="Low">Low</SelectItem>
               </SelectContent>
             </Select>
 
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-40 dashboard-card border-gray-700 text-white">
+              <SelectTrigger className="w-40">
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
-              <SelectContent className="bg-gray-800 border-gray-700">
-                <SelectItem value="newest" className="text-white focus:bg-gray-700">Newest First</SelectItem>
-                <SelectItem value="oldest" className="text-white focus:bg-gray-700">Oldest First</SelectItem>
-                <SelectItem value="severity" className="text-white focus:bg-gray-700">By Severity</SelectItem>
+              <SelectContent>
+                <SelectItem value="newest">Newest First</SelectItem>
+                <SelectItem value="oldest">Oldest First</SelectItem>
+                <SelectItem value="severity">By Severity</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -229,123 +229,123 @@ export function BugReports() {
       </div>
 
       {/* Status Tabs */}
-      <div className="dashboard-card p-1 rounded-lg">
-        <Tabs value={statusFilter} onValueChange={setStatusFilter} className="w-full">
-          <TabsList className="grid w-full grid-cols-6 bg-transparent">
-            <TabsTrigger value="all" className="text-gray-400 data-[state=active]:bg-red-500/20 data-[state=active]:text-red-400">
-              All ({statusCounts.all})
-            </TabsTrigger>
-            <TabsTrigger value="Open" className="text-gray-400 data-[state=active]:bg-blue-500/20 data-[state=active]:text-blue-400">
-              Open ({statusCounts.open})
-            </TabsTrigger>
-            <TabsTrigger value="In Progress" className="text-gray-400 data-[state=active]:bg-yellow-500/20 data-[state=active]:text-yellow-400">
-              In Progress ({statusCounts['in progress']})
-            </TabsTrigger>
-            <TabsTrigger value="Under Review" className="text-gray-400 data-[state=active]:bg-blue-500/20 data-[state=active]:text-blue-400">
-              Review ({statusCounts['under review']})
-            </TabsTrigger>
-            <TabsTrigger value="Resolved" className="text-gray-400 data-[state=active]:bg-green-500/20 data-[state=active]:text-green-400">
-              Resolved ({statusCounts.resolved})
-            </TabsTrigger>
-            <TabsTrigger value="Rejected" className="text-gray-400 data-[state=active]:bg-red-500/20 data-[state=active]:text-red-400">
-              Rejected ({statusCounts.rejected})
-            </TabsTrigger>
-          </TabsList>
+      <Tabs value={statusFilter} onValueChange={setStatusFilter} className="w-full">
+        <TabsList className="grid w-full grid-cols-6 bg-muted/50">
+          <TabsTrigger value="all" className="data-[state=active]:bg-bughunter data-[state=active]:text-bughunter-foreground">
+            All ({statusCounts.all})
+          </TabsTrigger>
+          <TabsTrigger value="Open" className="data-[state=active]:bg-bughunter data-[state=active]:text-bughunter-foreground">
+            Open ({statusCounts.open})
+          </TabsTrigger>
+          <TabsTrigger value="In Progress" className="data-[state=active]:bg-bughunter data-[state=active]:text-bughunter-foreground">
+            In Progress ({statusCounts['in progress']})
+          </TabsTrigger>
+          <TabsTrigger value="Under Review" className="data-[state=active]:bg-bughunter data-[state=active]:text-bughunter-foreground">
+            Review ({statusCounts['under review']})
+          </TabsTrigger>
+          <TabsTrigger value="Resolved" className="data-[state=active]:bg-bughunter data-[state=active]:text-bughunter-foreground">
+            Resolved ({statusCounts.resolved})
+          </TabsTrigger>
+          <TabsTrigger value="Rejected" className="data-[state=active]:bg-bughunter data-[state=active]:text-bughunter-foreground">
+            Rejected ({statusCounts.rejected})
+          </TabsTrigger>
+        </TabsList>
 
-          <TabsContent value={statusFilter} className="mt-6">
-            {/* Results Summary */}
-            <div className="mb-4">
-              <p className="text-sm text-gray-400">
-                Showing {filteredBugs.length} of {mockBugs.length} bug reports
-              </p>
-            </div>
+        <TabsContent value={statusFilter} className="mt-6">
+          {/* Results Summary */}
+          <div className="mb-4">
+            <p className="text-sm text-muted-foreground">
+              Showing {filteredBugs.length} of {mockBugs.length} bug reports
+            </p>
+          </div>
 
-            {/* Bug Reports Table */}
-            <div className="dashboard-table">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Bug Report</TableHead>
-                    <TableHead>Severity</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Program</TableHead>
-                    <TableHead>Submitted</TableHead>
-                    <TableHead>Reward</TableHead>
-                    <TableHead>Activity</TableHead>
-                    <TableHead className="w-20">Actions</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {filteredBugs.map((bug) => (
-                    <TableRow key={bug.id}>
-                      <TableCell>
-                        <div className="space-y-1">
-                          <div className="font-medium text-white">{bug.title}</div>
-                          <div className="text-sm text-blue-400">{bug.id}</div>
-                          <div className="text-xs text-gray-400 line-clamp-2 max-w-md">
-                            {bug.description}
-                          </div>
+          {/* Bug Reports Table */}
+          <Card className="bg-card/50 backdrop-blur border-border/50">
+            <Table>
+              <TableHeader>
+                <TableRow className="border-border/50">
+                  <TableHead className="text-muted-foreground">Bug Report</TableHead>
+                  <TableHead className="text-muted-foreground">Severity</TableHead>
+                  <TableHead className="text-muted-foreground">Status</TableHead>
+                  <TableHead className="text-muted-foreground">Program</TableHead>
+                  <TableHead className="text-muted-foreground">Submitted</TableHead>
+                  <TableHead className="text-muted-foreground">Reward</TableHead>
+                  <TableHead className="text-muted-foreground">Activity</TableHead>
+                  <TableHead className="text-muted-foreground w-20">Actions</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {filteredBugs.map((bug) => (
+                  <TableRow key={bug.id} className="border-border/30 hover:bg-muted/20">
+                    <TableCell>
+                      <div className="space-y-1">
+                        <div className="font-medium text-foreground">{bug.title}</div>
+                        <div className="text-sm text-muted-foreground">{bug.id}</div>
+                        <div className="text-xs text-muted-foreground line-clamp-2 max-w-md">
+                          {bug.description}
                         </div>
-                      </TableCell>
-                      <TableCell>
-                        <span className={`dashboard-badge ${getSeverityBadge(bug.severity)}`}>
-                          {bug.severity}
-                        </span>
-                      </TableCell>
-                      <TableCell>
-                        <div className="flex items-center gap-2">
-                          {getStatusIcon(bug.status)}
-                          <span className={`dashboard-badge ${getStatusBadge(bug.status)} text-xs font-medium`}>{bug.status}</span>
-                        </div>
-                      </TableCell>
-                      <TableCell className="text-sm text-gray-400">
-                        {bug.program}
-                      </TableCell>
-                      <TableCell className="text-sm text-gray-400">
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <Badge className={`${getSeverityColor(bug.severity)} text-white`}>
+                        {bug.severity}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>
+                      <div className={`flex items-center gap-2 px-2 py-1 rounded-full border ${getStatusColor(bug.status)}`}>
+                        {getStatusIcon(bug.status)}
+                        <span className="text-xs font-medium">{bug.status}</span>
+                      </div>
+                    </TableCell>
+                    <TableCell className="text-sm text-muted-foreground">
+                      {bug.program}
+                    </TableCell>
+                    <TableCell className="text-sm text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="h-3 w-3" />
+                        {new Date(bug.submittedDate).toLocaleDateString()}
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <span className={`font-medium ${bug.status === 'Resolved' ? 'text-green-500' : 'text-muted-foreground'}`}>
+                        {bug.reward}
+                      </span>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-3 text-xs text-muted-foreground">
                         <div className="flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
-                          {new Date(bug.submittedDate).toLocaleDateString()}
+                          <MessageSquare className="h-3 w-3" />
+                          {bug.comments}
                         </div>
-                      </TableCell>
-                      <TableCell>
-                        <span className={`font-medium ${bug.status === 'Resolved' ? 'text-green-400' : 'text-gray-400'}`}>
-                          {bug.reward}
-                        </span>
-                      </TableCell>
-                      <TableCell>
-                        <div className="flex items-center gap-3 text-xs text-gray-400">
-                          <div className="flex items-center gap-1">
-                            <MessageSquare className="h-3 w-3" />
-                            {bug.comments}
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Eye className="h-3 w-3" />
-                            {bug.views}
-                          </div>
+                        <div className="flex items-center gap-1">
+                          <Eye className="h-3 w-3" />
+                          {bug.views}
                         </div>
-                      </TableCell>
-                      <TableCell>
-                        <Button size="sm" variant="ghost" className="h-8 w-8 p-0 text-gray-400 hover:text-white">
-                          <Eye className="h-4 w-4" />
-                        </Button>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
+                        <Eye className="h-4 w-4" />
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </Card>
 
-            {filteredBugs.length === 0 && (
-              <div className="dashboard-card p-12 text-center">
-                <div className="space-y-2">
-                  <h3 className="text-lg font-medium text-white">No bug reports found</h3>
-                  <p className="text-gray-400">Try adjusting your search or filter criteria</p>
+          {filteredBugs.length === 0 && (
+            <Card className="bg-card/50 backdrop-blur border-border/50">
+              <CardContent className="flex flex-col items-center justify-center py-12">
+                <div className="text-center space-y-2">
+                  <h3 className="text-lg font-medium text-foreground">No bug reports found</h3>
+                  <p className="text-muted-foreground">Try adjusting your search or filter criteria</p>
                 </div>
-              </div>
-            )}
-          </TabsContent>
-        </Tabs>
-      </div>
+              </CardContent>
+            </Card>
+          )}
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }

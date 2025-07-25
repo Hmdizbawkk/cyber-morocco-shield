@@ -66,13 +66,13 @@ export function DashboardOverview() {
     }
   ];
 
-  const getSeverityColor = (severity: string) => {
+  const getSeverityBadge = (severity: string) => {
     switch(severity) {
-      case 'Critical': return 'bg-red-500';
-      case 'High': return 'bg-orange-500';
-      case 'Medium': return 'bg-yellow-500';
-      case 'Low': return 'bg-blue-500';
-      default: return 'bg-gray-500';
+      case 'Critical': return 'critical';
+      case 'High': return 'high';
+      case 'Medium': return 'medium';
+      case 'Low': return 'low';
+      default: return 'medium';
     }
   };
 
@@ -87,166 +87,154 @@ export function DashboardOverview() {
   };
 
   return (
-    <div className="space-y-8 animate-fade-in-up bg-cyber-grid">
-      {/* Enhanced Welcome Section */}
-      <div className="flex items-center justify-between animate-slide-in">
+    <div className="space-y-8 dashboard-fade-in">
+      {/* Welcome Section */}
+      <div className="flex items-center justify-between dashboard-slide-up">
         <div className="space-y-3">
-          <h1 className="text-4xl font-bold text-cyber">
-            Welcome back, <span className="text-accent animate-pulse-glow">john_hunter</span>
+          <h1 className="text-4xl font-bold text-white">
+            Welcome back, <span className="text-red-400 dashboard-pulse">john_hunter</span>
           </h1>
-          <p className="text-muted-foreground text-lg">
-            Track your bug hunting progress and <span className="text-primary">dominate the cyber realm</span>
+          <p className="text-gray-400 text-lg">
+            Track your bug hunting progress and <span className="text-blue-400">dominate the cyber realm</span>
           </p>
         </div>
-        <Button variant="glow" size="lg" className="animate-float">
+        <Button 
+          size="lg" 
+          className="dashboard-btn-primary px-6 py-3 rounded-lg"
+        >
           <Plus className="h-5 w-5 mr-2" />
           Submit New Bug
         </Button>
       </div>
 
-      {/* Enhanced Stats Grid */}
+      {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
-          <Card 
+          <div 
             key={index} 
-            className="cyber-card hover-glow animate-fade-in-up group"
+            className="dashboard-card p-6 dashboard-fade-in"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
-              <CardTitle className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+            <div className="flex items-center justify-between mb-4">
+              <div className="text-sm font-medium text-gray-400 uppercase tracking-wider">
                 {stat.title}
-              </CardTitle>
-              <div className={`p-2 rounded-xl bg-gradient-to-br from-card to-muted hover-glow transition-transform group-hover:scale-110`}>
-                <stat.icon className={`h-5 w-5 ${stat.color}`} />
               </div>
-            </CardHeader>
-            <CardContent>
-              <div className="text-3xl font-bold text-glow mb-2">{stat.value}</div>
-              <div className="flex items-center space-x-2">
-                <TrendingUp className={`h-4 w-4 ${stat.trend.startsWith('+') ? 'text-admin' : 'text-destructive'}`} />
-                <span className={`text-sm font-medium ${stat.trend.startsWith('+') ? 'text-admin' : 'text-destructive'}`}>
-                  {stat.trend} from last month
-                </span>
+              <div className="p-2 rounded-xl bg-gradient-to-br from-gray-800 to-gray-700">
+                <stat.icon className="h-5 w-5 text-blue-400" />
               </div>
-            </CardContent>
-          </Card>
+            </div>
+            <div className="dashboard-stat-value text-white mb-2">{stat.value}</div>
+            <div className="flex items-center space-x-2">
+              <TrendingUp className={`h-4 w-4 ${stat.trend.startsWith('+') ? 'text-green-400' : 'text-red-400'}`} />
+              <span className={`text-sm font-medium dashboard-stat-trend ${stat.trend.startsWith('+') ? 'positive' : 'negative'}`}>
+                {stat.trend} from last month
+              </span>
+            </div>
+          </div>
         ))}
       </div>
 
-      {/* Enhanced Activity Section */}
+      {/* Activity Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Recent Activity Feed */}
-        <Card className="cyber-card animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-          <CardHeader>
-            <CardTitle className="text-xl font-semibold flex items-center gap-2 text-cyber">
-              <Activity className="h-5 w-5 text-accent" />
+        <div className="dashboard-card p-6 dashboard-fade-in" style={{ animationDelay: '0.5s' }}>
+          <div className="mb-6">
+            <h3 className="text-xl font-semibold flex items-center gap-2 text-white">
+              <Activity className="h-5 w-5 text-blue-400" />
               Recent Activity
-            </CardTitle>
-            <CardDescription>Real-time updates on your bug reports</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-admin/10 to-transparent border border-admin/20 animate-slide-in interactive">
-                <div className="h-2 w-2 bg-admin rounded-full animate-pulse-glow"></div>
-                <span className="text-sm">Bug <span className="text-accent font-mono">BH-2024-001</span> status changed to <span className="text-admin font-medium">Resolved</span></span>
-              </div>
-              <div className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-primary/10 to-transparent border border-primary/20 animate-slide-in interactive">
-                <div className="h-2 w-2 bg-primary rounded-full animate-pulse-glow"></div>
-                <span className="text-sm">Reward of <span className="text-accent font-medium">$500</span> credited for critical vulnerability</span>
-              </div>
-              <div className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-accent/10 to-transparent border border-accent/20 animate-slide-in interactive">
-                <div className="h-2 w-2 bg-accent rounded-full animate-pulse-glow"></div>
-                <span className="text-sm">New comment on <span className="text-accent font-mono">BH-2024-002</span> from security team</span>
-              </div>
+            </h3>
+            <p className="text-gray-400 mt-1">Real-time updates on your bug reports</p>
+          </div>
+          <div className="space-y-3">
+            <div className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-green-500/10 to-transparent border border-green-500/20 dashboard-slide-up">
+              <div className="h-2 w-2 bg-green-400 rounded-full dashboard-pulse"></div>
+              <span className="text-sm text-gray-300">Bug <span className="text-blue-400 font-mono">BH-2024-001</span> status changed to <span className="text-green-400 font-medium">Resolved</span></span>
             </div>
-          </CardContent>
-        </Card>
+            <div className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-blue-500/10 to-transparent border border-blue-500/20 dashboard-slide-up">
+              <div className="h-2 w-2 bg-blue-400 rounded-full dashboard-pulse"></div>
+              <span className="text-sm text-gray-300">Reward of <span className="text-green-400 font-medium">$500</span> credited for critical vulnerability</span>
+            </div>
+            <div className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-yellow-500/10 to-transparent border border-yellow-500/20 dashboard-slide-up">
+              <div className="h-2 w-2 bg-yellow-400 rounded-full dashboard-pulse"></div>
+              <span className="text-sm text-gray-300">New comment on <span className="text-yellow-400 font-mono">BH-2024-002</span> from security team</span>
+            </div>
+          </div>
+        </div>
 
         {/* Performance Dashboard */}
-        <Card className="cyber-card animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-          <CardHeader>
-            <CardTitle className="text-xl font-semibold flex items-center gap-2 text-cyber">
-              <Zap className="h-5 w-5 text-accent" />
+        <div className="dashboard-card p-6 dashboard-fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="mb-6">
+            <h3 className="text-xl font-semibold flex items-center gap-2 text-white">
+              <Zap className="h-5 w-5 text-yellow-400" />
               Performance Metrics
-            </CardTitle>
-            <CardDescription>Your hunting achievements this month</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              <div className="flex justify-between items-center p-3 rounded-lg bg-gradient-to-r from-muted/20 to-transparent">
-                <span className="text-sm text-muted-foreground">Global Ranking</span>
-                <Badge variant="outline" className="font-semibold animate-pulse-glow border-accent/30 text-accent">#7 Elite Hunter</Badge>
-              </div>
-              <div className="flex justify-between items-center p-3 rounded-lg bg-gradient-to-r from-muted/20 to-transparent">
-                <span className="text-sm text-muted-foreground">Success Rate</span>
-                <span className="text-accent font-bold text-lg">87%</span>
-              </div>
-              <div className="flex justify-between items-center p-3 rounded-lg bg-gradient-to-r from-muted/20 to-transparent">
-                <span className="text-sm text-muted-foreground">Avg Response Time</span>
-                <span className="text-accent font-bold text-lg">2.3h</span>
-              </div>
-              <div className="mt-4 p-4 rounded-xl bg-gradient-to-r from-accent/10 to-primary/10 border border-accent/30 hover-glow">
-                <div className="flex items-center gap-2 mb-2">
-                  <Trophy className="h-5 w-5 text-accent animate-float" />
-                  <span className="text-sm font-semibold text-accent">Achievement Unlocked!</span>
-                </div>
-                <p className="text-xs text-muted-foreground">Speed Demon: Found 5 critical bugs in 24 hours</p>
-              </div>
+            </h3>
+            <p className="text-gray-400 mt-1">Your hunting achievements this month</p>
+          </div>
+          <div className="space-y-4">
+            <div className="flex justify-between items-center p-3 rounded-lg bg-gradient-to-r from-gray-500/20 to-transparent">
+              <span className="text-sm text-gray-400">Global Ranking</span>
+              <span className="dashboard-badge medium font-semibold">#7 Elite Hunter</span>
             </div>
-          </CardContent>
-        </Card>
+            <div className="flex justify-between items-center p-3 rounded-lg bg-gradient-to-r from-gray-500/20 to-transparent">
+              <span className="text-sm text-gray-400">Success Rate</span>
+              <span className="text-blue-400 font-bold text-lg">87%</span>
+            </div>
+            <div className="flex justify-between items-center p-3 rounded-lg bg-gradient-to-r from-gray-500/20 to-transparent">
+              <span className="text-sm text-gray-400">Avg Response Time</span>
+              <span className="text-blue-400 font-bold text-lg">2.3h</span>
+            </div>
+            <div className="mt-4 p-4 rounded-xl bg-gradient-to-r from-yellow-500/10 to-blue-500/10 border border-yellow-500/30">
+              <div className="flex items-center gap-2 mb-2">
+                <Trophy className="h-5 w-5 text-yellow-400" />
+                <span className="text-sm font-semibold text-yellow-400">Achievement Unlocked!</span>
+              </div>
+              <p className="text-xs text-gray-400">Speed Demon: Found 5 critical bugs in 24 hours</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Enhanced Recent Bug Reports */}
-      <Card className="cyber-card animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
-        <CardHeader>
-          <CardTitle className="text-xl font-semibold text-cyber">Recent Bug Reports</CardTitle>
-          <CardDescription>Your latest vulnerability discoveries</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            {recentBugs.map((bug, index) => (
-              <div
-                key={bug.id}
-                className="flex items-center justify-between p-4 border border-border/50 rounded-xl hover:bg-gradient-to-r hover:from-muted/20 hover:to-transparent transition-all duration-300 hover:border-primary/30 interactive group"
-                style={{ animationDelay: `${(index + 8) * 0.1}s` }}
-              >
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-3">
-                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">{bug.title}</h4>
-                    <Badge 
-                      variant={
-                        bug.severity === 'Critical' ? 'destructive' :
-                        bug.severity === 'High' ? 'destructive' :
-                        'secondary'
-                      }
-                      className="shadow-lg"
-                    >
-                      {bug.severity}
-                    </Badge>
-                  </div>
-                  <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-                    <span className="font-mono text-accent">{bug.id}</span>
-                    <span>•</span>
-                    <span>{bug.date}</span>
-                    <span>•</span>
-                    <div className="flex items-center gap-1">
-                      {getStatusIcon(bug.status)}
-                      <Badge variant="outline" className="text-xs border-accent/30 text-accent">
-                        {bug.status}
-                      </Badge>
-                    </div>
-                  </div>
+      {/* Recent Bug Reports */}
+      <div className="dashboard-card p-6 dashboard-fade-in" style={{ animationDelay: '0.7s' }}>
+        <div className="mb-6">
+          <h3 className="text-xl font-semibold text-white">Recent Bug Reports</h3>
+          <p className="text-gray-400 mt-1">Your latest vulnerability discoveries</p>
+        </div>
+        <div className="space-y-4">
+          {recentBugs.map((bug, index) => (
+            <div
+              key={bug.id}
+              className="flex items-center justify-between p-4 border border-gray-700/50 rounded-xl hover:bg-gradient-to-r hover:from-gray-800/20 hover:to-transparent transition-all duration-300 hover:border-blue-500/30 group"
+              style={{ animationDelay: `${(index + 8) * 0.1}s` }}
+            >
+              <div className="space-y-2">
+                <div className="flex items-center space-x-3">
+                  <h4 className="font-semibold text-white group-hover:text-blue-400 transition-colors">{bug.title}</h4>
+                  <span className={`dashboard-badge ${getSeverityBadge(bug.severity)}`}>
+                    {bug.severity}
+                  </span>
                 </div>
-                <div className="text-right">
-                  <div className="text-xl font-bold text-glow text-accent">{bug.reward}</div>
-                  <div className="text-xs text-muted-foreground">Reward</div>
+                <div className="flex items-center space-x-4 text-sm text-gray-400">
+                  <span className="font-mono text-blue-400">{bug.id}</span>
+                  <span>•</span>
+                  <span>{bug.date}</span>
+                  <span>•</span>
+                  <div className="flex items-center gap-1">
+                    {getStatusIcon(bug.status)}
+                    <span className="text-xs text-blue-400">
+                      {bug.status}
+                    </span>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+              <div className="text-right">
+                <div className="text-xl font-bold text-green-400">{bug.reward}</div>
+                <div className="text-xs text-gray-400">Reward</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

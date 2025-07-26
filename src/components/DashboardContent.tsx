@@ -1,6 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import { DashboardOverview } from "./dashboard/DashboardOverview";
 import { BugReports } from "./dashboard/BugReports";
+import { SubmitBug } from "./dashboard/SubmitBug";
+import { Notifications } from "./dashboard/Notifications";
+import { Leaderboard } from "./dashboard/Leaderboard";
+import { Community } from "./dashboard/Community";
+import { Profile } from "./dashboard/Profile";
+import { Settings } from "./dashboard/Settings";
 
 export function DashboardContent() {
   return (
@@ -9,12 +15,12 @@ export function DashboardContent() {
         <Routes>
           <Route path="/dashboard" element={<DashboardOverview />} />
           <Route path="/dashboard/bugs" element={<BugReports />} />
-          <Route path="/dashboard/submit" element={<div>Submit Bug Page</div>} />
-          <Route path="/dashboard/notifications" element={<div>Notifications Page</div>} />
-          <Route path="/dashboard/leaderboard" element={<div>Leaderboard Page</div>} />
-          <Route path="/dashboard/community" element={<div>Community Page</div>} />
-          <Route path="/dashboard/profile" element={<div>Profile Page</div>} />
-          <Route path="/dashboard/settings" element={<div>Settings Page</div>} />
+          <Route path="/dashboard/submit" element={<SubmitBug />} />
+          <Route path="/dashboard/notifications" element={<Notifications />} />
+          <Route path="/dashboard/leaderboard" element={<Leaderboard />} />
+          <Route path="/dashboard/community" element={<Community />} />
+          <Route path="/dashboard/profile" element={<Profile />} />
+          <Route path="/dashboard/settings" element={<Settings />} />
         </Routes>
       </div>
     </main>

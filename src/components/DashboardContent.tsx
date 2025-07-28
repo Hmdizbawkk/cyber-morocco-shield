@@ -13,14 +13,14 @@ export function DashboardContent() {
     <main className="flex-1 overflow-auto">
       <div className="container mx-auto p-6">
         <Routes>
-          <Route path="/dashboard" element={<DashboardOverview />} />
-          <Route path="/dashboard/bugs" element={<BugReports />} />
-          <Route path="/dashboard/submit" element={<SubmitBug />} />
-          <Route path="/dashboard/notifications" element={<Notifications />} />
-          <Route path="/dashboard/leaderboard" element={<Leaderboard />} />
-          <Route path="/dashboard/community" element={<Community />} />
-          <Route path="/dashboard/profile" element={<Profile />} />
-          <Route path="/dashboard/settings" element={<Settings />} />
+          <Route index element={<DashboardOverview />} />
+          <Route path="bugs" element={<BugReports />} />
+          <Route path="submit" element={<SubmitBug />} />
+          <Route path="notifications" element={<Notifications />} />
+          <Route path="leaderboard" element={<Leaderboard />} />
+          <Route path="community" element={<Community />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="settings" element={<Settings />} />
         </Routes>
       </div>
     </main>

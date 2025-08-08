@@ -89,24 +89,24 @@ export function EnterpriseSidebar() {
   const getNavCls = ({ isActive }: { isActive: boolean }) =>
     `flex items-center w-full px-3 py-2 text-sm font-medium rounded-md transition-colors ${
       isActive
-        ? "bg-primary text-primary-foreground"
-        : "text-muted-foreground hover:bg-muted hover:text-foreground"
+        ? "bg-blue-600 text-white shadow-lg shadow-blue-500/25"
+        : "text-muted-foreground hover:bg-blue-50 hover:text-blue-700 dark:hover:bg-blue-900/20 dark:hover:text-blue-300"
     }`;
 
   return (
     <Sidebar className={collapsed ? "w-14" : "w-64"} collapsible="icon">
-      <SidebarHeader className="p-4">
+      <SidebarHeader className="p-4 bg-gradient-to-r from-blue-600 to-blue-700">
         <div className="flex items-center space-x-2">
-          <Building className="h-6 w-6 text-primary" />
+          <Building className="h-6 w-6 text-white" />
           {!collapsed && (
-            <span className="text-lg font-semibold">Enterprise</span>
+            <span className="text-lg font-semibold text-white">Enterprise</span>
           )}
         </div>
       </SidebarHeader>
 
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Analyses</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-blue-600 font-semibold">Analyses</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {analyticsItems.map((item) => (
@@ -128,7 +128,7 @@ export function EnterpriseSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel>Gestion</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-blue-600 font-semibold">Gestion</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {managementItems.map((item) => (
@@ -146,7 +146,7 @@ export function EnterpriseSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel>Système</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-blue-600 font-semibold">Système</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {systemItems.map((item) => (

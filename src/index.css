@@ -9,82 +9,85 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Enhanced Cyberpunk Color Palette */
-    --background: 216 100% 2%;
+    /* Cyberpunk Blue Color Palette */
+    --background: 220 100% 4%;
     --foreground: 210 20% 98%;
 
-    --card: 217 32% 6%;
+    --card: 221 39% 8%;
     --card-foreground: 210 20% 98%;
 
-    --popover: 217 32% 6%;
+    --popover: 221 39% 8%;
     --popover-foreground: 210 20% 98%;
 
-    /* Primary - Enhanced Red with warmth */
-    --primary: 0 91% 67%;
+    /* Primary - Electric Blue */
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 0 100% 74%;
+    --primary-glow: 217 100% 70%;
 
-    /* Secondary - Deep blue-purple */
-    --secondary: 235 39% 15%;
+    /* Secondary - Deep Blue */
+    --secondary: 221 39% 15%;
     --secondary-foreground: 210 20% 98%;
 
-    /* Muted - Sophisticated dark grays */
-    --muted: 217 19% 12%;
+    /* Muted - Dark blue grays */
+    --muted: 221 30% 12%;
     --muted-foreground: 215 20% 65%;
 
-    /* Accent - Electric cyan */
+    /* Accent - Neon Cyan */
     --accent: 189 100% 56%;
-    --accent-foreground: 216 100% 2%;
+    --accent-foreground: 220 100% 4%;
 
-    --destructive: 0 91% 67%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Enhanced borders and inputs */
-    --border: 217 19% 18%;
-    --input: 217 19% 12%;
-    --ring: 0 91% 67%;
+    /* Blue-themed borders and inputs */
+    --border: 221 30% 18%;
+    --input: 221 30% 12%;
+    --ring: 217 91% 60%;
 
     --radius: 0.75rem;
 
-    /* Enhanced BugHunter Colors */
-    --bughunter: 0 91% 67%;
+    /* Blue BugHunter Colors */
+    --bughunter: 217 91% 60%;
     --bughunter-foreground: 0 0% 100%;
-    --bughunter-glow: 0 100% 74%;
+    --bughunter-glow: 217 100% 70%;
     
-    --enterprise: 221 83% 53%;
+    --enterprise: 217 91% 60%;
     --enterprise-foreground: 0 0% 100%;
-    --enterprise-glow: 221 100% 60%;
+    --enterprise-glow: 217 100% 70%;
     
-    --admin: 142 76% 36%;
+    --admin: 217 91% 60%;
     --admin-foreground: 0 0% 100%;
-    --admin-glow: 142 85% 45%;
+    --admin-glow: 217 100% 70%;
 
-    /* Enhanced Sidebar */
-    --sidebar-background: 217 32% 6%;
+    /* Blue Sidebar */
+    --sidebar-background: 221 39% 8%;
     --sidebar-foreground: 210 20% 90%;
-    --sidebar-primary: 0 91% 67%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 217 19% 18%;
+    --sidebar-accent: 221 30% 18%;
     --sidebar-accent-foreground: 210 20% 98%;
-    --sidebar-border: 217 19% 18%;
-    --sidebar-ring: 0 91% 67%;
+    --sidebar-border: 221 30% 18%;
+    --sidebar-ring: 217 91% 60%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(0 91% 67%), hsl(0 100% 74%));
-    --gradient-secondary: linear-gradient(135deg, hsl(235 39% 15%), hsl(217 32% 6%));
+    /* Blue Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 100% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(221 39% 15%), hsl(221 39% 8%));
     --gradient-accent: linear-gradient(135deg, hsl(189 100% 56%), hsl(189 85% 45%));
-    --gradient-card: linear-gradient(145deg, hsl(217 32% 6%), hsl(217 19% 12%));
-    --gradient-cyber: linear-gradient(135deg, hsl(0 91% 67% / 0.1), hsl(189 100% 56% / 0.1));
+    --gradient-card: linear-gradient(145deg, hsl(221 39% 8%), hsl(221 30% 12%));
+    --gradient-cyber: linear-gradient(135deg, hsl(217 91% 60% / 0.1), hsl(189 100% 56% / 0.1));
+    --gradient-header: linear-gradient(135deg, hsl(221 39% 8%), hsl(217 91% 60% / 0.1));
 
-    /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(0 91% 67% / 0.3);
-    --shadow-cyber: 0 0 30px hsl(0 91% 67% / 0.2), 0 0 60px hsl(189 100% 56% / 0.1);
-    --shadow-glow: 0 0 20px hsl(0 100% 74% / 0.4);
-    --shadow-card: 0 4px 20px hsl(216 100% 2% / 0.3);
+    /* Blue Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(217 91% 60% / 0.3);
+    --shadow-cyber: 0 0 30px hsl(217 91% 60% / 0.2), 0 0 60px hsl(189 100% 56% / 0.1);
+    --shadow-glow: 0 0 20px hsl(217 100% 70% / 0.4);
+    --shadow-card: 0 4px 20px hsl(220 100% 4% / 0.3);
+    --shadow-neon: 0 0 20px hsl(217 91% 60% / 0.5), 0 0 40px hsl(217 91% 60% / 0.3), 0 0 60px hsl(217 91% 60% / 0.1);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-fast: all 0.15s ease-out;
   }
 }
 
@@ -98,19 +101,26 @@ All colors MUST be HSL.
   }
 }
 
-/* Enhanced Cyberpunk Patterns */
+/* Cyberpunk Blue Patterns */
 .bg-grid-pattern {
   background-image: 
-    linear-gradient(hsl(0 91% 67% / 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, hsl(0 91% 67% / 0.1) 1px, transparent 1px);
+    linear-gradient(hsl(217 91% 60% / 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(217 91% 60% / 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
 .bg-cyber-grid {
   background-image: 
-    linear-gradient(hsl(0 91% 67% / 0.08) 1px, transparent 1px),
+    linear-gradient(hsl(217 91% 60% / 0.08) 1px, transparent 1px),
     linear-gradient(90deg, hsl(189 100% 56% / 0.08) 1px, transparent 1px);
   background-size: 40px 40px;
+}
+
+.bg-circuit {
+  background-image: 
+    radial-gradient(circle at 25% 25%, hsl(217 91% 60% / 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, hsl(189 100% 56% / 0.1) 2px, transparent 2px);
+  background-size: 20px 20px;
 }
 
 /* Enhanced Custom Animations */
@@ -121,10 +131,19 @@ All colors MUST be HSL.
 
 @keyframes pulse-glow {
   0%, 100% { 
-    box-shadow: 0 0 5px hsl(0 91% 67% / 0.4);
+    box-shadow: 0 0 5px hsl(217 91% 60% / 0.4);
   }
   50% { 
-    box-shadow: 0 0 20px hsl(0 91% 67% / 0.8), 0 0 30px hsl(0 91% 67% / 0.4);
+    box-shadow: 0 0 20px hsl(217 91% 60% / 0.8), 0 0 30px hsl(217 91% 60% / 0.4);
+  }
+}
+
+@keyframes neon-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 10px hsl(217 91% 60% / 0.5), inset 0 0 10px hsl(217 91% 60% / 0.2);
+  }
+  50% { 
+    box-shadow: 0 0 25px hsl(217 91% 60% / 0.8), 0 0 50px hsl(217 91% 60% / 0.5), inset 0 0 20px hsl(217 91% 60% / 0.3);
   }
 }
 
@@ -219,17 +238,17 @@ All colors MUST be HSL.
   animation: cyber-glitch 0.3s ease-in-out;
 }
 
-/* Enhanced Glowing Effects */
+/* Blue Glowing Effects */
 .glow-primary {
-  box-shadow: 0 0 20px hsl(0 91% 67% / 0.5);
+  box-shadow: 0 0 20px hsl(217 91% 60% / 0.5);
 }
 
 .glow-accent {
   box-shadow: 0 0 20px hsl(189 100% 56% / 0.5);
 }
 
-.glow-admin {
-  box-shadow: 0 0 20px hsl(142 76% 36% / 0.5);
+.glow-neon {
+  box-shadow: var(--shadow-neon);
 }
 
 .hover-glow {
@@ -237,14 +256,20 @@ All colors MUST be HSL.
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 25px hsl(0 91% 67% / 0.7), 0 0 50px hsl(0 91% 67% / 0.3);
+  box-shadow: 0 0 25px hsl(217 91% 60% / 0.7), 0 0 50px hsl(217 91% 60% / 0.3);
   transform: translateY(-2px);
 }
 
-/* Cyberpunk UI Elements */
+.neon-text {
+  color: hsl(217 91% 60%);
+  text-shadow: 0 0 10px hsl(217 91% 60% / 0.8), 0 0 20px hsl(217 91% 60% / 0.6), 0 0 30px hsl(217 91% 60% / 0.4);
+}
+
+/* Cyberpunk Blue UI Elements */
 .cyber-border {
   position: relative;
-  border: 1px solid hsl(0 91% 67% / 0.3);
+  border: 1px solid hsl(217 91% 60% / 0.3);
+  background: linear-gradient(145deg, hsl(221 39% 8%), hsl(221 30% 12%));
 }
 
 .cyber-border::before {
@@ -266,18 +291,34 @@ All colors MUST be HSL.
 }
 
 .neon-border {
-  border: 1px solid;
-  border-image: linear-gradient(45deg, hsl(0 91% 67%), hsl(189 100% 56%), hsl(142 76% 36%), hsl(0 91% 67%)) 1;
+  border: 1px solid hsl(217 91% 60%);
+  box-shadow: 0 0 10px hsl(217 91% 60% / 0.5), inset 0 0 10px hsl(217 91% 60% / 0.2);
   animation: neon-pulse 2s ease-in-out infinite alternate;
 }
 
-@keyframes neon-pulse {
-  from {
-    box-shadow: 0 0 5px hsl(0 91% 67% / 0.5);
-  }
-  to {
-    box-shadow: 0 0 20px hsl(0 91% 67% / 0.8), 0 0 30px hsl(189 100% 56% / 0.6);
-  }
+.cyber-panel {
+  background: linear-gradient(145deg, hsl(221 39% 8% / 0.8), hsl(221 30% 12% / 0.9));
+  border: 1px solid hsl(217 91% 60% / 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, hsl(217 91% 60% / 0.1), transparent);
+  animation: scan-line 3s ease-in-out infinite;
+}
+
+@keyframes scan-line {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
 }
 
 /* Interactive Elements */
@@ -295,18 +336,36 @@ All colors MUST be HSL.
   transform: translateY(0);
 }
 
-/* Card Enhancements */
+/* Blue Card Enhancements */
 .cyber-card {
   background: var(--gradient-card);
   border: 1px solid hsl(var(--border));
   backdrop-filter: blur(10px);
   transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, hsl(217 91% 60% / 0.05) 50%, transparent 70%);
+  opacity: 0;
+  transition: var(--transition-smooth);
 }
 
 .cyber-card:hover {
-  border-color: hsl(0 91% 67% / 0.5);
+  border-color: hsl(217 91% 60% / 0.5);
   box-shadow: var(--shadow-cyber);
   transform: translateY(-2px);
+}
+
+.cyber-card:hover::before {
+  opacity: 1;
 }
 
 /* Enhanced Scrollbar */
@@ -329,9 +388,9 @@ All colors MUST be HSL.
   background: var(--gradient-accent);
 }
 
-/* Text Effects */
+/* Blue Text Effects */
 .text-glow {
-  text-shadow: 0 0 10px hsl(0 91% 67% / 0.8);
+  text-shadow: 0 0 10px hsl(217 91% 60% / 0.8);
 }
 
 .text-cyber {
@@ -340,4 +399,22 @@ All colors MUST be HSL.
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 600;
+}
+
+.text-neon {
+  color: hsl(217 91% 60%);
+  text-shadow: 
+    0 0 5px hsl(217 91% 60% / 1),
+    0 0 10px hsl(217 91% 60% / 1),
+    0 0 20px hsl(217 91% 60% / 1),
+    0 0 40px hsl(217 91% 60% / 0.8);
+}
+
+.logo-bughunter {
+  background: linear-gradient(135deg, hsl(217 91% 60%), hsl(189 100% 56%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  text-shadow: 0 0 20px hsl(217 91% 60% / 0.5);
 }

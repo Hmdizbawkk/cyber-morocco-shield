@@ -1,7 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, UserPlus } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Search, UserPlus, Users, Activity, Shield, Mail } from "lucide-react";
 
 export function EnterpriseUsers() {
   return (

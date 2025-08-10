@@ -87,26 +87,30 @@ export function EnterpriseSidebar() {
   const collapsed = state === "collapsed";
 
   const getNavCls = ({ isActive }: { isActive: boolean }) =>
-    `flex items-center w-full px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+    `flex items-center w-full px-3 py-2 text-sm font-medium rounded-md transition-all duration-300 relative overflow-hidden ${
       isActive
-        ? "bg-blue-600 text-white shadow-lg shadow-blue-500/25"
-        : "text-muted-foreground hover:bg-blue-50 hover:text-blue-700 dark:hover:bg-blue-900/20 dark:hover:text-blue-300"
+        ? "bg-primary text-white shadow-neon cyber-border animate-pulse-glow"
+        : "text-muted-foreground hover:bg-primary/20 hover:text-primary hover:shadow-glow hover:border-primary/30 border border-transparent"
     }`;
 
   return (
     <Sidebar className={collapsed ? "w-14" : "w-64"} collapsible="icon">
-      <SidebarHeader className="p-4 bg-gradient-to-r from-blue-600 to-blue-700">
-        <div className="flex items-center space-x-2">
-          <Building className="h-6 w-6 text-white" />
+      <SidebarHeader className="p-4 bg-gradient-to-br from-primary to-accent relative overflow-hidden">
+        <div className="absolute inset-0 bg-cyber-grid opacity-20"></div>
+        <div className="relative flex items-center space-x-2">
+          <Building className="h-6 w-6 text-white glow-primary animate-pulse-glow" />
           {!collapsed && (
-            <span className="text-lg font-semibold text-white">Enterprise</span>
+            <div className="flex flex-col">
+              <span className="text-lg font-bold logo-bughunter">BugHunter</span>
+              <span className="text-xs text-blue-200 font-medium">Enterprise</span>
+            </div>
           )}
         </div>
       </SidebarHeader>
 
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-blue-600 font-semibold">Analyses</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-neon font-bold tracking-wider uppercase text-xs">Analyses</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {analyticsItems.map((item) => (
@@ -128,7 +132,7 @@ export function EnterpriseSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel className="text-blue-600 font-semibold">Gestion</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-neon font-bold tracking-wider uppercase text-xs">Gestion</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {managementItems.map((item) => (
@@ -146,7 +150,7 @@ export function EnterpriseSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel className="text-blue-600 font-semibold">Système</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-neon font-bold tracking-wider uppercase text-xs">Système</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {systemItems.map((item) => (
@@ -164,23 +168,23 @@ export function EnterpriseSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="p-4">
+      <SidebarFooter className="p-4 border-t border-primary/20">
         <div className="flex items-center space-x-2">
-          <Avatar className="h-8 w-8">
+          <Avatar className="h-8 w-8 cyber-border glow-primary">
             <AvatarImage src="/placeholder.svg" />
-            <AvatarFallback>
+            <AvatarFallback className="bg-primary/20 text-primary">
               <UserCheck className="h-4 w-4" />
             </AvatarFallback>
           </Avatar>
           {!collapsed && (
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium truncate">Admin</p>
-              <p className="text-xs text-muted-foreground truncate">Enterprise</p>
+              <p className="text-sm font-medium truncate text-neon">Admin</p>
+              <p className="text-xs text-accent truncate">Enterprise</p>
             </div>
           )}
         </div>
         {!collapsed && (
-          <Button variant="ghost" size="sm" className="w-full mt-2">
+          <Button variant="outline" size="sm" className="w-full mt-2 cyber-border hover-glow">
             Déconnexion
           </Button>
         )}

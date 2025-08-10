@@ -11,8 +11,9 @@ import { EnterpriseSettings } from "./enterprise/EnterpriseSettings";
 
 export function EnterpriseDashboardContent() {
   return (
-    <main className="flex-1 overflow-auto">
-      <div className="container mx-auto p-6">
+    <main className="flex-1 overflow-auto bg-background relative">
+      <div className="absolute inset-0 bg-circuit opacity-5"></div>
+      <div className="relative container mx-auto p-6 space-y-6">
         <Routes>
           <Route index element={<EnterpriseOverview />} />
           <Route path="analytics" element={<EnterpriseAnalytics />} />
